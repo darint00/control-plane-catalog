@@ -1,0 +1,10 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: Sample Web Application
+  files:                         # ICP copies these into the primary service's container (inside a writable named volume)
+    - source: nginx.conf         # relative to this application's folder in the catalog
+      target: /etc/nginx/conf.d/default.conf
+  settings:
+    note: Application-specific settings go here; ICP does not interpret this section.

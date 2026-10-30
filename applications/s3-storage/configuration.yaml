@@ -1,0 +1,18 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: S3 Storage (RustFS)
+  secrets:                       # names only; values are entered at deploy time and never stored
+    - name: RUSTFS_ACCESS_KEY
+      description: Access key for the S3 API and web console (blank uses the dev default, rustfsadmin)
+      required: false 
+    - name: RUSTFS_SECRET_KEY
+      description: Secret key for the S3 API and web console (blank uses the dev default, rustfsadmin)
+      required: false
+  init_services:                 # run once and exit; a finished one is not "partial" or failed
+    - rustfs-init                # creates the bucket
+  permissions:
+    container_names: true
+    networks:                    # joins the network created by the Analytics Engine application
+      - ae-net

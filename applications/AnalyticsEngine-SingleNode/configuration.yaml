@@ -1,0 +1,13 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: Analytics Engine Single Node
+  permissions:                   # exceptions to ICP's default manifest policy; honoured only from this catalog file
+    container_names: true        # docker-compose.yaml sets container_name (ae, ae-spark, ae-udf)
+    host_paths:                  # host directories docker-compose.yaml may bind-mount
+      - /home/darint/ACTIAN/GITREPOS/misc
+    new_privileges:              # services whose startup uses sudo; ICP otherwise starts containers with no-new-privileges
+      - ae
+    networks:                    # fixed network names; s3-storage joins ae-net
+      - ae-net

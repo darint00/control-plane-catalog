@@ -1,0 +1,14 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: Document Processing Agent
+  secrets:
+    - name: LLM_API_KEY
+      required: true
+  model:
+    provider: openai
+    id: gpt-4o
+  settings:
+    # The worker image is set in docker-compose.yaml (this file configures the primary 'api' service).
+    chunk_size: 1000

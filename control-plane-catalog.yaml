@@ -1,0 +1,160 @@
+# Control Plane application catalog (schema: apiVersion icp/v1, kind ApplicationCatalog).
+# EXAMPLE entries: images other than sample-web-app are placeholders and must be replaced with
+# images you build or are licensed to run before they can be deployed.
+apiVersion: icp/v1
+kind: ApplicationCatalog
+metadata:
+  name: control-plane-catalog
+  description: Catalog of available AI agents and applications
+  version: "1.0.0"
+
+spec:
+  applications:
+    - id: hermes-agent
+      name: Hermes AI Agent
+      description: General-purpose AI agent runtime. Example entry - replace the placeholder image with your Hermes image.
+      version: "1.0.0"
+      type: ai-agent
+      configuration_file: applications/hermes-agent/configuration.yaml
+      editable_files:
+        - applications/hermes-agent/configuration.yaml
+        - applications/hermes-agent/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/hermes-agent/docker-compose.yaml
+        primary_service: agent
+      metadata:
+        category: general
+        maintainer: example
+
+    - id: sample-fastapi-agent
+      name: Sample FastAPI Agent
+      description: Example Python (FastAPI) AI agent service exposing an HTTP API. Placeholder image.
+      version: "1.0.0"
+      type: ai-agent
+      configuration_file: applications/sample-fastapi-agent/configuration.yaml
+      editable_files:
+        - applications/sample-fastapi-agent/configuration.yaml
+        - applications/sample-fastapi-agent/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/sample-fastapi-agent/docker-compose.yaml
+        primary_service: agent
+      metadata:
+        category: reference
+        language: python
+
+    - id: document-agent
+      name: Document Processing Agent
+      description: Example agent with an API service and a worker that process documents with an LLM. Placeholder images.
+      version: "1.0.0"
+      type: ai-agent
+      configuration_file: applications/document-agent/configuration.yaml
+      editable_files:
+        - applications/document-agent/configuration.yaml
+        - applications/document-agent/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/document-agent/docker-compose.yaml
+        primary_service: api
+      metadata:
+        category: documents
+
+    - id: sample-web-app
+      name: Sample Web Application
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      version: "1.0.0"
+      type: docker-application
+      configuration_file: applications/sample-web-app/configuration.yaml
+      editable_files:
+        - applications/sample-web-app/configuration.yaml
+        - applications/sample-web-app/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/sample-web-app/docker-compose.yaml
+        primary_service: web
+      metadata:
+        category: demo
+
+    - id: web-app-test
+      name: web app test 
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      version: "1.0.0"
+      type: docker-application
+      configuration_file: applications/web-app-test/configuration.yaml
+      editable_files:
+        - applications/web-app-test/configuration.yaml
+        - applications/web-app-test/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/web-app-test/docker-compose.yaml
+        primary_service: web
+      metadata:
+        category: demo
+
+    - id: web1
+      name: web1
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      version: "1.0.0"
+      type: docker-application
+      configuration_file: applications/web1/configuration.yaml
+      editable_files:
+        - applications/web1/configuration.yaml
+        - applications/web1/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/web1/docker-compose.yaml
+        primary_service: web
+      metadata:
+        category: demo
+
+    - id: s3-storage
+      name: S3 Storage
+      description: S3 compatible storage service using RustFS
+      version: "1.0.1"
+      type: docker-application
+      configuration_file: applications/s3-storage/configuration.yaml
+      editable_files:
+        - applications/s3-storage/configuration.yaml
+        - applications/s3-storage/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/s3-storage/docker-compose.yaml
+        primary_service: rustfs
+      metadata:
+        category: demo
+
+    - id: analytics-engine-single-node
+      name: Analytics Engine Single Node
+      description: Actian Analytics Engine single-node deployment with Spark provider and UDF engine companion services.
+      version: "8.0.0"
+      type: docker-application
+      configuration_file: applications/AnalyticsEngine-SingleNode/configuration.yaml
+      editable_files:
+        - applications/AnalyticsEngine-SingleNode/configuration.yaml
+        - applications/AnalyticsEngine-SingleNode/docker-compose.yaml
+      deployment:
+        method: docker-compose
+        manifest: applications/AnalyticsEngine-SingleNode/docker-compose.yaml
+        primary_service: ae
+      metadata:
+        category: analytics
+
+    - id: nginx-helm 
+      name: nginx-helm 
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      version: "1.0.0"
+      type: helm-application
+      configuration_file: applications/nginx-helm/configuration.yaml
+      editable_files:
+        - applications/nginx-helm/configuration.yaml
+        - applications/nginx-helm/values.yaml
+      deployment:
+        method: helm 
+        chart: applications/nginx-helm/nginx-helm-0.1.0.zip
+        values: applications/nginx-helm/values.yaml
+        primary_service: web
+      metadata:
+        category: demo
+
+

@@ -1,0 +1,7 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: Sample Web Application
+  settings:
+    note: Application-specific settings go here; ICP does not interpret this section.

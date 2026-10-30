@@ -1,0 +1,16 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: Hermes AI Agent
+  secrets:
+    - name: HERMES_API_KEY
+      description: Provider API key used by the agent
+      required: true
+  model:
+    provider: anthropic
+    id: claude-sonnet-5-5
+  settings:
+    tools:
+      - web-search
+      - file-access

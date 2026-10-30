@@ -1,0 +1,14 @@
+apiVersion: icp/v1
+kind: ApplicationConfiguration
+spec:
+  application:
+    name: Sample FastAPI Agent
+  secrets:                       # names only; values are entered at deploy time and never stored
+    - name: LLM_API_KEY
+      description: API key for the model provider
+      required: true
+  model:
+    provider: openai
+    id: gpt-4o-mini
+  settings:
+    max_turns: 10
