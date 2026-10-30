@@ -1,4 +1,4 @@
-apiVersion: icp/v1
+apiVersion: acp/v1
 kind: ApplicationConfiguration
 spec:
   application:

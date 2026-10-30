@@ -1,5 +1,5 @@
 # Image, ports, environment, resources and health check are defined here.
-# configuration.yaml ships nginx.conf into the nginx_config volume (it must stay writable so ICP can copy the file in).
+# configuration.yaml ships nginx.conf into the nginx_config volume (it must stay writable so ACP can copy the file in).
 services:
   web:
     image: nginx:alpine

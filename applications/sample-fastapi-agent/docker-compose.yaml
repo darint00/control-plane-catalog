@@ -1,6 +1,6 @@
 services:
   agent:
-    image: registry.example.com/icp/sample-fastapi-agent:1.0.0   # PLACEHOLDER - replace with your image
+    image: registry.example.com/acp/sample-fastapi-agent:1.0.0   # PLACEHOLDER - replace with your image
     ports:
       - "8082:8000"
     environment:

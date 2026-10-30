@@ -1,10 +1,10 @@
-apiVersion: icp/v1
+apiVersion: acp/v1
 kind: ApplicationConfiguration
 spec:
   application:
     name: nginx-helm
   helm:
-    namespace: icp-{instance}
+    namespace: acp-{instance}
     timeout: 5m
     atomic: true
 

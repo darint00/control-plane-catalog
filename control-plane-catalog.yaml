@@ -1,7 +1,7 @@
-# Control Plane application catalog (schema: apiVersion icp/v1, kind ApplicationCatalog).
+# Control Plane application catalog (schema: apiVersion acp/v1, kind ApplicationCatalog).
 # EXAMPLE entries: images other than sample-web-app are placeholders and must be replaced with
 # images you build or are licensed to run before they can be deployed.
-apiVersion: icp/v1
+apiVersion: acp/v1
 kind: ApplicationCatalog
 metadata:
   name: control-plane-catalog
@@ -62,7 +62,7 @@ spec:
 
     - id: sample-web-app
       name: Sample Web Application
-      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ACP.
       version: "1.0.0"
       type: docker-application
       configuration_file: applications/sample-web-app/configuration.yaml
@@ -78,7 +78,7 @@ spec:
 
     - id: web-app-test
       name: web app test 
-      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ACP.
       version: "1.0.0"
       type: docker-application
       configuration_file: applications/web-app-test/configuration.yaml
@@ -94,7 +94,7 @@ spec:
 
     - id: web1
       name: web1
-      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ACP.
       version: "1.0.0"
       type: docker-application
       configuration_file: applications/web1/configuration.yaml
@@ -142,7 +142,7 @@ spec:
 
     - id: nginx-helm 
       name: nginx-helm 
-      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ICP.
+      description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ACP.
       version: "1.0.0"
       type: helm-application
       configuration_file: applications/nginx-helm/configuration.yaml

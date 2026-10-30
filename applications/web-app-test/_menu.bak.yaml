@@ -45,7 +45,7 @@ spec:
       title: "Application"
       collapsible: true
       description: |
-       Identity of the application as shown in ICP.
+       Identity of the application as shown in ACP.
       items:
         - name: application.name
           title: "Name"
@@ -120,7 +120,7 @@ spec:
       title: "Health Check"
       collapsible: true
       description: |
-       How ICP determines whether the container is healthy.
+       How ACP determines whether the container is healthy.
       items:
         - name: healthcheck.test
           title: "Test Command"
@@ -162,9 +162,9 @@ spec:
       title: "Settings"
       collapsible: true
       description: |
-       Application-specific settings. ICP does not interpret this section.
+       Application-specific settings. ACP does not interpret this section.
       items:
         - name: settings.note
           title: "Note"
           type: text
-          value: "Application-specific settings go here; ICP does not interpret this section."
+          value: "Application-specific settings go here; ACP does not interpret this section."
