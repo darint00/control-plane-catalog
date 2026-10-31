@@ -101,6 +101,7 @@ spec:
       editable_files:
         - applications/web1/configuration.yaml
         - applications/web1/docker-compose.yaml
+        - applications/web1/nginx.conf
       deployment:
         method: docker-compose
         manifest: applications/web1/docker-compose.yaml
