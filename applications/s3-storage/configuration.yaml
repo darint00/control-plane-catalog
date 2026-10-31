@@ -19,10 +19,12 @@ spec:
           collapsible: true
           items:                     # names only; values are entered at deploy time and never stored
             - name: RUSTFS_ACCESS_KEY
+              type: secret
               target: services.rustfs.environment.RUSTFS_ACCESS_KEY   # informational: compose reads ${RUSTFS_ACCESS_KEY}; a secret is never written into the compose file
               description: Access key for the S3 API and web console (blank uses the dev default, rustfsadmin)
               required: false
             - name: RUSTFS_SECRET_KEY
+              type: secret
               target: services.rustfs.environment.RUSTFS_SECRET_KEY
               description: Secret key for the S3 API and web console (blank uses the dev default, rustfsadmin)
               required: false
