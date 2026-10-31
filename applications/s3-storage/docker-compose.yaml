@@ -11,8 +11,8 @@ services:
       RUSTFS_ACCESS_KEY: "${RUSTFS_ACCESS_KEY:-rustfsadmin}"
       RUSTFS_SECRET_KEY: "${RUSTFS_SECRET_KEY:-rustfsadmin}"
     ports:
-      - "9000:9000"   # S3 API
-      - "9001:9001"   # web console
+      - "${S3_PORT:-9000}:9000"   # S3 API; host port set by the S3 Port parameter
+      - "${WEB_CONSOLE_PORT:-9001}:9001"   # web console; host port set by the Web Console parameter
     volumes:
       - rustfs-data:/data
     networks:
