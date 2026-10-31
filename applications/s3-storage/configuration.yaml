@@ -10,37 +10,41 @@ spec:
     networks:                    # joins the network created by the Analytics Engine application
       - ae-net
   Parameters:                    # input fields shown in the deploy wizard, in sections
-    secrets:
-      title: Credentials
-      collapsible: true
-      items:                     # names only; values are entered at deploy time and never stored
-        - name: RUSTFS_ACCESS_KEY
-          target: services.rustfs.environment.RUSTFS_ACCESS_KEY   # informational: compose reads ${RUSTFS_ACCESS_KEY}; a secret is never written into the compose file
-          description: Access key for the S3 API and web console (blank uses the dev default, rustfsadmin)
-          required: false
-        - name: RUSTFS_SECRET_KEY
-          target: services.rustfs.environment.RUSTFS_SECRET_KEY
-          description: Secret key for the S3 API and web console (blank uses the dev default, rustfsadmin)
-          required: false
-    deployment_settings:
-      title: Deployment Settings
+    Settings:
+      title: General Settings
       collapsible: true
       items:
-        - name: S3 Port (9000)
-          target: services.rustfs.ports.S3_PORT          # fills ${S3_PORT:-9000} in the service's ports list
-          type: number
-          min: 1
-          max: 65535
-          description: Host port for the S3 service (blank keeps 9000)
-        - name: Web Console (9001)
-          target: services.rustfs.ports.WEB_CONSOLE_PORT # fills ${WEB_CONSOLE_PORT:-9001}
-          type: number
-          min: 1
-          max: 65535
-          description: Host port for the web console (blank keeps 9001)
-        - name: Volumes
-          target: services.rustfs.volumes                # comma-separated, replaces the compose list; blank keeps it
-          description: Volume mounts for the S3 service, e.g. rustfs-data:/data
-        - name: Network
-          target: services.rustfs.networks               # comma-separated, replaces the compose list; blank keeps it
-          description: Network for the S3 service
+        credential_settings:
+          title: Credentials
+          collapsible: true
+          items:                     # names only; values are entered at deploy time and never stored
+            - name: RUSTFS_ACCESS_KEY
+              target: services.rustfs.environment.RUSTFS_ACCESS_KEY   # informational: compose reads ${RUSTFS_ACCESS_KEY}; a secret is never written into the compose file
+              description: Access key for the S3 API and web console (blank uses the dev default, rustfsadmin)
+              required: false
+            - name: RUSTFS_SECRET_KEY
+              target: services.rustfs.environment.RUSTFS_SECRET_KEY
+              description: Secret key for the S3 API and web console (blank uses the dev default, rustfsadmin)
+              required: false
+        deployment_settings:
+          title: Deployment Settings
+          collapsible: true
+          items:
+            - name: S3 Port (9000)
+              target: services.rustfs.ports.S3_PORT          # fills ${S3_PORT:-9000} in the service's ports list
+              type: number
+              min: 1
+              max: 65535
+              description: Host port for the S3 service (blank keeps 9000)
+            - name: Web Console (9001)
+              target: services.rustfs.ports.WEB_CONSOLE_PORT # fills ${WEB_CONSOLE_PORT:-9001}
+              type: number
+              min: 1
+              max: 65535
+              description: Host port for the web console (blank keeps 9001)
+            - name: Volumes
+              target: services.rustfs.volumes                # comma-separated, replaces the compose list; blank keeps it
+              description: Volume mounts for the S3 service, e.g. rustfs-data:/data
+            - name: Network
+              target: services.rustfs.networks               # comma-separated, replaces the compose list; blank keeps it
+              description: Network for the S3 service
