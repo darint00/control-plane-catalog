@@ -95,7 +95,7 @@ spec:
     - id: web1
       name: web1
       description: Static web server (nginx) that can be deployed end-to-end from public images; use it to try ACP.
-      version: "1.0.0"
+      version: "1.0.1"
       type: docker-application
       configuration_file: applications/web1/configuration.yaml
       editable_files:
